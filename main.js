@@ -89,3 +89,22 @@ secondItem.style.backgroundColor = 'green';
 
 var ThirdItem = document.querySelector('.list-group-item:nth-child(3)');
 ThirdItem.style.visibility = 'hidden';
+
+
+// QuerySelectorAll
+
+var titles = document.querySelectorAll('.title');
+
+console.log(titles);
+titles[0].textContent = 'Hello Add';
+
+var odd = document.querySelectorAll('li:nth-child(odd');
+var even = document.querySelectorAll('li:nth-child(even');
+even[0].style.color = 'green';
+for(var i=0;i<odd.length;i++)
+{
+   // odd[i].style.backgroundColor = '#f4f4f4';
+    odd[i].style.backgroundColor = 'green';
+    
+    even[i].style.backgroundColor = '#ccc';
+}
