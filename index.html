@@ -27,7 +27,8 @@
     <h2 class="title">Add Items</h2>
     
     <form id="addForm" class="form-inline mb-3">
-      <input type="text" class="form-control mr-2" id="item">
+      <input type="text" class="form-control mr-2" id="item" placeholder="Add Items..">
+      <input type="text" class="form-control mr-2" id="description" placeholder="Add description..">
       <input type="submit" class="btn btn-dark" value="Submit">
     </form>
     
@@ -35,28 +36,16 @@
     
     <ul id="items" class="list-group">
       <li class="list-group-item">Item 1 
-        <div class="btn-group float-right">
-          <button class="btn btn-default btn-sm float-right edit">EDIT</button>
-          <button class="btn btn-danger btn-sm float-right delete">X</button>
-        </div>
+        <button class="btn btn-danger btn-sm float-right delete">X</button>
       </li>
       <li class="list-group-item">Item 2 
-        <div class="btn-group float-right">
-          <button class="btn btn-default btn-sm float-right edit">EDIT</button>
-          <button class="btn btn-danger btn-sm float-right delete">X</button>
-        </div>  
+        <button class="btn btn-danger btn-sm float-right delete">X</button>  
       </li>
       <li class="list-group-item">Item 3
-        <div class="btn-group float-right">
-          <button class="btn btn-default btn-sm float-right edit">EDIT</button>
-          <button class="btn btn-danger btn-sm float-right delete">X</button>
-        </div>
+        <button class="btn btn-danger btn-sm float-right delete">X</button>
       </li>
       <li class="list-group-item">Item 4 
-        <div class="btn-group float-right">
-          <button class="btn btn-default btn-sm float-right edit">EDIT</button>
-          <button class="btn btn-danger btn-sm float-right delete">X</button>
-        </div>
+        <button class="btn btn-danger btn-sm float-right delete">X</button>
       </li>
     </ul>
    
