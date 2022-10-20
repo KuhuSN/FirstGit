@@ -1,11 +1,11 @@
 // Examine the document object //
 
-//console.dir(document);
-//console.log(document);
+// console.dir(document);
+// console.log(document);
 // console.log(document.domain);
 // console.log(document.URL);
-//console.log(document.title);
-//document.title = 123;
+// console.log(document.title);
+// document.title = 123;
 // console.log(document.doctype);
 // console.log(document.head);
 // console.log(documnent.body);
@@ -19,7 +19,7 @@
 
 // GetElementsByID
 
-//console.log(document.getElementById('header-title'));
+// console.log(document.getElementById('header-title'));
 // var headerTitle = document.getElementById('header-title');
 // var header = document.getElementById('main-header');
 // console.log(headerTitle);
@@ -41,7 +41,7 @@
 // items[1].style.backgroundColor = 'yellow';
 
 // Gives Error
-//items.style.backgroundColor = '#f4f4f4';
+// items.style.backgroundColor = '#f4f4f4';
 // for(var i=0;i<items.length;i++)
 // {
 //     items[i].style.backgroundColor = '#FAFA33';
@@ -54,11 +54,11 @@
 // console.log(li[1]);
 // li[1].textContent = 'Hello 2';
 // li[1].style.fontWeight = 'bold';
-//li[1].style.background = 'yellow';
+// li[1].style.background = 'yellow';
 
 // Gives Error
 
-//li.style.backgroundColor = '#ffff00';
+// li.style.backgroundColor = '#ffff00';
 
 // for(var i=0;i<li.length;i++)
 // {
@@ -111,7 +111,7 @@
 
 // Traversing the DOM 
 
-var itemList = document.querySelector('#items');
+// var itemList = document.querySelector('#items');
 // ParentNode 
 
 // console.log(itemList.parentNode);
@@ -128,22 +128,22 @@ var itemList = document.querySelector('#items');
 // ChildNodes
 // console.log(itemList.childNodes);
 
-//console.log(itemList.children);
-//console.log(itemList.children[1]);
-itemList.children[1].style.backgroundColor = 'yellow';
+// console.log(itemList.children);
+// console.log(itemList.children[1]);
+// itemList.children[1].style.backgroundColor = 'yellow';
 
-//firstChild
+// //firstChild
 
-// console.log(itemList.firstChild);
-// //firstElementChild
-// console.log(itemList.firstElementChild);
-itemList.firstElementChild.textContent = 'Hello 1';
+// // console.log(itemList.firstChild);
+// // //firstElementChild
+// // console.log(itemList.firstElementChild);
+// itemList.firstElementChild.textContent = 'Hello 1';
 
 // lastChild
 // console.log(itemList.lastChild);
 // // lastElementChild
 // console.log(itemList.lastElementChild);
-itemList.lastElementChild.textContent = 'Hello 4';
+// itemList.lastElementChild.textContent = 'Hello 4';
 
 // nextSibling
 // console.log(itemList.nextSibling);
@@ -157,31 +157,83 @@ itemList.lastElementChild.textContent = 'Hello 4';
 // // previousElementSibling
 // console.log(itemList.previousElementSibling);
 
-itemList.previousElementSibling.style.color = 'green';
+// itemList.previousElementSibling.style.color = 'green';
 
 // CreateElement
 
-//create a div
+// create a div
 
-var newDiv = document.createElement('div');
-// add class
-newDiv.className = 'hello';
-//add id
-newDiv.id = 'hello1';
+// var newDiv = document.createElement('div');
+// // add class
+// newDiv.className = 'hello';
+// //add id
+// newDiv.id = 'hello1';
 
-// add attr
-newDiv.setAttribute('title','Hello Div');
+// // add attr
+// newDiv.setAttribute('title','Hello Div');
 
-//create text node
-var newDivText = document.createTextNode('Hello World');
+// //create text node
+// var newDivText = document.createTextNode('Hello World');
 
-// Add text to div
-newDiv.appendChild(newDivText); 
+// // Add text to div
+// newDiv.appendChild(newDivText); 
 
-var container = document.querySelector('header .container');
-var h1 = document.querySelector('header h1');
+// var container = document.querySelector('header .container');
+// var h1 = document.querySelector('header h1');
 
-console.log(newDiv);
-newDiv.style.fontSize = '30px';
-container.insertBefore(newDiv , h1);
+// console.log(newDiv);
+// newDiv.style.fontSize = '30px';
+// container.insertBefore(newDiv , h1);
+
+ var form = document.getElementById('addForm');
+ var itemList = document.getElementById('items');
+// var filter = document.getElementById('filter');
+ // form submit event
+ form.addEventListener('submit', addItem);
+
+ // Delete Event
+ itemList.addEventListener('click',removeItem);
+ // Filter Event
+ //filter.addEventListener('keyup',filterItems);
+ // Add Item
+ function addItem(e){
+    e.preventDefault();
+
+    var newItem = document.getElementById('item').value;
+    
+    // create new li element
+    var li = document.createElement('li');
+    // add class
+    li.className = 'list-group-item';
+    li.appendChild(document.createTextNode(newItem));
+    
+    //create del buttone element
+    var deleteBtn = document.createElement('button');
+    
+    //Add  classes to  del button
+    deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+
+    // Append Text node
+    deleteBtn.appendChild(document.createTextNode('X'));
+
+    // Append Button to li
+    li.appendChild(deleteBtn);
+
+    // Append li to list
+    itemList.appendChild(li);
+ }
+
+
+// Remove Item
+function removeItem(e){
+    if(e.target.classList.contains('delete')){
+        if(confirm('Are you sure you want to delete it?')){
+             var li = e.target.parentElement;
+             itemList.removeChild(li);
+        }  
+    }
+}
+
+
+
 
